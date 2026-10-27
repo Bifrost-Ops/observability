@@ -1,0 +1,11 @@
+# No admin credentials, live databases, backup archives or keys.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.db
+*.sqlite
+*.backup
+secrets/
+backups/
