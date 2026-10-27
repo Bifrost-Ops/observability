@@ -1,0 +1,14 @@
+# Grafana datasource example. Provision only after Prometheus DNS and TLS
+# are configured. The URL is a placeholder and must be replaced per site.
+# Never embed passwords or bearer tokens in Git.
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    access: proxy
+    # Change to the reachable management Prometheus endpoint.
+    # Verify tenant contracts and certificate trust before enabling.
+    url: http://REPLACE_WITH_PROMETHEUS_SERVICE:9090
+    isDefault: true
+    editable: false
