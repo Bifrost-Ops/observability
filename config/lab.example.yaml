@@ -1,0 +1,22 @@
+# Observability planning configuration; not an installable Helm values file.
+# Each version and chart key must be validated before use.
+environment: lab
+
+# Hubble depends on a healthy, compatible Cilium installation.
+# Flow visibility may include sensitive metadata; define access controls.
+hubble:
+  enabled: false
+  retention_policy: DEFINE_BEFORE_ENABLEMENT
+
+# Prometheus requires explicit capacity and retention decisions.
+# Reinstalling manifests does NOT restore historical metric data.
+prometheus:
+  enabled: false
+  retention_days: 7
+  storage_size: SIZE_AFTER_CAPACITY_REVIEW
+
+# Grafana dashboards should be provisioned from version-controlled files.
+# Admin credentials must come from a secret manager, never YAML in Git.
+grafana:
+  enabled: false
+  credentials_source: EXTERNAL_SECRET_MANAGER
